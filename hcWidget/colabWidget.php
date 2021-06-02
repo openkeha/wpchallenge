@@ -1,10 +1,10 @@
 <?php
 register_sidebar(array(
-    'name' =>__('collaborateurs', 'twentytwentyone'),
-    'description' => __('Emplacement pour ajouter les collaborateurs avec photos', 'twentytwentyone'),
+    'name' =>__('Les Challenges', 'twentytwentyone'),
+    'description' => __('Emplacement pour ajouter les challenges!', 'twentytwentyone'),
     'id' => 'hc-colab',
-    'before_widget' => '<div id="%1s" class="%2s container"',
-    'after_widget' => '</div>',
+    'before_widget' => '<div class="mycover"><div id="%1s" class="%2s container"',
+    'after_widget' => '</div></div>',
     'before_title' => '<h3>',
     'after_title' => '</h3>'
 ));
@@ -15,21 +15,21 @@ class hc_colab_widget extends WP_Widget
     {
         parent::__construct(
             'hc_colab_widget',
-            __('Equipe', 'twentytwentyone')
+            __('Challenges', 'twentytwentyone')
         );
     }
 
     public function widget($args, $instance)
     {
-        ?><div class='col'>
+        ?><div class='col bg'>
 			<?php
-            echo '<h3>'.
+            echo '<h3 class="hc_title">'.
                 nl2br(htmlspecialchars_decode(apply_filters('widget_title', $instance['name']))).
                 '</h3>'.
-                "<img src='".$instance['image_uri']."' />".
-                '<p>'.
+                "<img src='".$instance['image_uri']."' style='max-width: 100%;'/>".
+                '<div><p class="center">'.
                 nl2br($instance['description']).
-                '</p>';
+                '</p></div>';
                 ?>
 		</div>
 		<?php
@@ -49,11 +49,11 @@ class hc_colab_widget extends WP_Widget
         }
         ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Nom: ') ?></label>
+			<label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Nom du Challenge: ') ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('name'); ?>" name="<?php echo $this->get_field_name('name'); ?>" type="text" value="<?php echo esc_attr($name); ?>" />
 		</p>
         <p>
-            <label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description: ') ?></label>
+            <label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description du challenge: ') ?></label>
 			<textarea class="widefat" id="<?php echo $this->get_field_id('description'); ?>" name="<?php echo $this->get_field_name('description'); ?>" rows=10 cols=50>
                 <?php echo esc_attr($description); ?>
             </textarea>
@@ -62,13 +62,13 @@ class hc_colab_widget extends WP_Widget
 			<label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php echo _e('Image', 'twentytwentyone') ?></label>
 			<?php
                 if (!empty($instance['image_uri'])) :
-                    echo "<img class='custom_media_image attachment-post-thumbnail size-post-thumbnail' id='image_". $this->get_field_id('image_uri')."' src='".$instance['image_uri']."' /></br>";
+                    echo "<img class='custom_media_image attachment-post-thumbnail size-post-thumbnail' style='max-width: 100%' id='image_". $this->get_field_id('image_uri')."' src='".$instance['image_uri']."' /></br>";
         endif; ?>
 			<input type='text' class='widefat custom_media_url' name='<?php echo $this->get_field_name('image_uri'); ?>' id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if (!empty($instance['image_uri'])): echo $instance['image_uri'];
         endif; ?>">
 		</p>
 		<p>
-			<input type="button" class="button button-primary custom_media_button" id="custom_media_button_<?php  echo $this->get_field_id('image_uri'); ?>" name="<?php echo $this->get_field_name('image_uri'); ?>" value="<?php _e('Image', 'twentytwentyone'); ?>" />
+			<input type="button" class="button button-primary custom_media_button" id="custom_media_button_<?php  echo $this->get_field_id('image_uri'); ?>" name="<?php echo $this->get_field_name('image_uri'); ?>" value="<?php _e('Image du Challenge', 'twentytwentyone'); ?>" />
 		</p>
 		<?php
     }

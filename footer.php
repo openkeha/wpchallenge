@@ -54,13 +54,9 @@
 				<?php endif; ?>
 			</div><!-- .site-name -->
 			<div class="powered-by">
-				<?php
-				printf(
-					/* translators: %s: WordPress. */
-					esc_html__( 'Proudly powered by %s.', 'twentytwentyone' ),
-					'<a href="' . esc_url( __( 'https://wordpress.org/', 'twentytwentyone' ) ) . '">WordPress</a>'
-				);
-				?>
+				Powered By DigiTeam - <a href="https://www.digiteam.fr" target="__blank">
+					Diginamic
+				</a>
 			</div><!-- .powered-by -->
 
 		</div><!-- .site-info -->

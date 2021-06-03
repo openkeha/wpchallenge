@@ -29,7 +29,9 @@ class hc_colab_widget extends WP_Widget
                 "<img src='".$instance['image_uri']."' style='max-width: 100%;'/>".
                 '<div><p class="center">'.
                 nl2br($instance['description']).
-                '</p></div>';
+                '</p>
+                <button class="btn btn-dark has-background btn-center"><a href='.$instance['link'].'>EN SAVOIR +</a></button>
+                </div>';
                 ?>
 		</div>
 		<?php
@@ -47,16 +49,26 @@ class hc_colab_widget extends WP_Widget
         } else {
             $description = '';
         }
+        if (isset($instance['link'])) {
+            $link= $instance['link'];
+        } else {
+            $link = '';
+        }
         ?>
 		<p>
 			<label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Nom du Challenge: ') ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('name'); ?>" name="<?php echo $this->get_field_name('name'); ?>" type="text" value="<?php echo esc_attr($name); ?>" />
 		</p>
+        
         <p>
             <label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description du challenge: ') ?></label>
 			<textarea class="widefat" id="<?php echo $this->get_field_id('description'); ?>" name="<?php echo $this->get_field_name('description'); ?>" rows=10 cols=50>
                 <?php echo esc_attr($description); ?>
             </textarea>
+		</p>
+        <p>
+            <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Lien vers la page du challenge: ') ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>"" type='text' value="<?php echo esc_attr($link); ?>">
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php echo _e('Image', 'twentytwentyone') ?></label>
@@ -79,6 +91,7 @@ class hc_colab_widget extends WP_Widget
         $instance['name'] = stripslashes(wp_filter_post_kses($new_instance['name']));
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
         $instance['description'] = strip_tags($new_instance['description']);
+        $instance['link'] = strip_tags($new_instance['link']);
         return $instance;
     }
 }

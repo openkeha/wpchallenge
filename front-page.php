@@ -11,5 +11,8 @@ get_header();
         </div>
     </div>
 </div>
+<div id="mapid" style="height: 450px">
+</div>
 <?php
+//dynamic_sidebar('hc-map');
 get_footer();

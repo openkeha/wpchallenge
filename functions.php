@@ -639,3 +639,4 @@ function twentytwentyone_add_ie_class()
 add_action('wp_footer', 'twentytwentyone_add_ie_class');
 
 include_once(dirname(__FILE__).'/hcWidget/colabWidget.php');
+include_once(dirname(__FILE__).'/hcWidget/mapWidget.php');

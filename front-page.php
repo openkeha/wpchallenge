@@ -11,8 +11,16 @@ get_header();
         </div>
     </div>
 </div>
+<div>
+    <h2 style='text-align: center;'>
+        Rejoignez vous aussi nos formations
+    </h2>
+    <a href='https://www.diginamic.fr' target='_blank'>
+        <img src='https://www.digiteamchallenge.com/wp-content/themes/twentytwentyone/assets/images/Logo_Diginamic.png' alt='diginamic' style='display: block;margin: 2px auto;background: #fff;'/>
+    </a>
+</div>
 <div id="mapid" style="height: 450px">
 </div>
 <?php
-//dynamic_sidebar('hc-map');
+dynamic_sidebar('hc-map');
 get_footer();

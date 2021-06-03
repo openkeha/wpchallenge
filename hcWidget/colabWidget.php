@@ -29,9 +29,11 @@ class hc_colab_widget extends WP_Widget
                 "<img src='".$instance['image_uri']."' style='max-width: 100%;'/>".
                 '<div><p class="center">'.
                 nl2br($instance['description']).
-                '</p>
-                <button class="btn btn-dark has-background btn-center"><a href='.$instance['link'].'>EN SAVOIR +</a></button>
-                </div>';
+                '</p>';
+                if ($instance['link'] != '') {
+                    echo '<button class="btn btn-secondary btn-lg active has-background btn-center" role="button" aria-pressed="true"><a href='.$instance['link'].'>EN SAVOIR +</a></button>';
+                }
+                echo '</div>';
                 ?>
 		</div>
 		<?php
@@ -108,6 +110,7 @@ function hc_colab_scripts()
 {
     wp_enqueue_media();
     wp_enqueue_script('hc_colab_widget', get_template_directory_uri().'/hcWidget/js/widget.js', false, '1.0', true);
+    
 }
-
+wp_enqueue_script('jquery',get_template_directory_uri().'/assets/js/jquery.min.js');
 wp_enqueue_style('boostrap', '//cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css');

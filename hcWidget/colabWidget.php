@@ -9,6 +9,9 @@ register_sidebar(array(
     'after_title' => '</h3>'
 ));
 
+/**
+ * Undocumented class
+ */
 class hc_colab_widget extends WP_Widget
 {
     public function __construct()
@@ -38,7 +41,12 @@ class hc_colab_widget extends WP_Widget
 		</div>
 		<?php
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $instance
+ * @return void
+ */
     public function form($instance)
     {
         if (isset($instance['name'])) {

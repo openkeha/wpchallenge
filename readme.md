@@ -15,6 +15,10 @@ Le fichier template-test.php vous montre comment créer un mmodèle de page.
 
 ## Anatomie d'un widget
 
+Ceci est l'anatomie minimale d'un Widget. Pour plus d'informations, se rendre sur [la documentation officielle de WP](https://developer.wordpress.org/reference/classes/wp_widget/)
+
+### Le constructeur
+
  Pour créer un widget, on crée une classe qui étend la classe WP_Widget.
 
 ``` PHP
@@ -34,11 +38,13 @@ Le fichier template-test.php vous montre comment créer un mmodèle de page.
  WP_Widget::__construct( string $id_base, string $name, array $widget_options = array(), array $control_options = array() )
  ```
 
+### Le formulaire de configuration du widget
+
 La procédure form génère le formulaire de configuration du widget.
 
 ``` PHP
  /**
- * Affiche le formulaire de configuration du widget
+ * Affiche le formulaire de configuration de l'instance du widget
  *
  * @param array $instance Les réglages courants du Widget
  * @return string default 'noform'
@@ -47,3 +53,35 @@ La procédure form génère le formulaire de configuration du widget.
      //On génère ici le formulaire
  }
  ```
+
+### L'enregistrement des données de configuration du widget
+
+``` PHP
+    /**
+     * L'enregistrement de la configuration de l'instance du widget
+     *
+     * @param array $new_instance La nouvelle configuration de l'instance du widget
+     * @param array|null $old_instance(optional) L'ancienne configuration de l'instance du widget
+     * @return array La configuration à sauvegarder ou un bool false pour annuler la sauvegarde
+     */
+    public function update($new_instance, $old_instance)
+    {
+        //votre code ici
+    }
+```
+
+### L'affichage du widget
+
+``` PHP
+/**
+     * Affichage de l'instance du Widget
+     *
+     * @param array $args ces arguments incluent 'before_title', 'after_title', 'before_widget', et 'after_widget'
+     * @param array $instance La configuration de l'instance du widget
+     * @return void
+     */
+    public function widget($args, $instance)
+    {
+        echo 'mon widget';
+    }
+```

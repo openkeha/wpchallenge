@@ -6,7 +6,7 @@ Le dossier hcWidget Il vous permet de comprendre le fonctionnement d'une sidebar
 
 ## Les modèles de page
 
-Le fichier template-test.php vous montre comment créer un mmodèle de page.
+Le fichier template-test.php vous montre comment créer un modèle de page.
  Vous pouvez y ajouter des sidebars, le contenu inséré depuis l'éditeur du back-office et n'importe quel code PHP fonctionnel!
 
 ## Le fichier functions.php
